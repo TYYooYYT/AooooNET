@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>لوحة التحكم</title>
-  <style>
-    body { font-family: Arial; text-align: center; padding: 50px; direction: rtl; }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
-  <h1>مرحباً بك في لوحة التحكم</h1>
+  <h1>أهلاً بك في لوحة التحكم</h1>
+  <div class="form-container">
+    <input type="text" id="clientName" placeholder="اسم الزبون">
+    <input type="number" id="amount" placeholder="المبلغ">
+    <select id="type">
+      <option value="credit">له</option>
+      <option value="debt">عليه</option>
+    </select>
+    <input type="text" id="note" placeholder="ملاحظات (اختياري)">
+    <button onclick="addRecord()">إضافة</button>
+  </div>
+
+  <table id="recordsTable">
+    <thead>
+      <tr>
+        <th>الاسم</th>
+        <th>المبلغ</th>
+        <th>النوع</th>
+        <th>ملاحظات</th>
+        <th>حذف</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="firebase-config.js"></script>
+  <script src="dashboard.js"></script>
 </body>
 </html>
